@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="javascripts/addJob.js"></script>
+    <script type="text/javascript" src="javascripts/register.js"></script>
 	</head>
 
 	<body style="padding: 0px;">
@@ -19,7 +19,7 @@
 	      </div>
 	      <div class="collapse navbar-collapse">
 		      <ul class="nav navbar-nav">
-		      	<li class="active"><a href="">Add a Job</a></li>
+		      	<li class="active"><a href="/addJob">Add a Job</a></li>
 		      	<li class="active"><a href="../">FAQ</a></li>
 		      </ul>
 		      <form class="navbar-form navbar-left" role="search">
@@ -44,47 +44,38 @@
 
     <div class="jumbotron" style="background-color: #94B77C">
     	<div class="container">
-	    	<h1>Add a job posting</h1>
-	    	<p>Contribute to your community</p>
-	    	<p>User our quick and easy payment system, powered by Stripe</p>
+	    	<h1>Help out your community</h1>
+	    	<p>Work with great people in your city</p>
+	    	<p>Start your search today!</p>
 	    </div>
     </div>
 
     <div class="container">
     	<div class="input-group input-group-lg">
-    		<span class="input-group-addon">Title</span>
-    		<input id="titleInput" type="text" class="form-control" placeholder="Pick a standout headline for your job posting">
+    		<span class="input-group-addon" style="width: 120px;">Username</span>
+    		<input id="registerUsernameInput" type="text" class="form-control" style="width: 500px;" placeholder="Choose a unique username">
     	</div>
     	<div class="input-group input-group-lg">
-    		<span class="input-group-addon">Salary</span>
-    		<input id="salaryInput" type="text" class="form-control" placeholder="Default: $">
-    		<div class="input-group-btn">
-    			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Salary Type<span class="caret"></span></button>
-	        <ul class="dropdown-menu" role="menu">
-	          <li><a href="#">Hourly</a></li>
-	          <li><a href="#">Upon completion</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Negotiable</a></li>
-	        </ul>
-    		</div>
+    		<span class="input-group-addon" style="width: 120px;">Password</span>
+    		<input id="registerPasswordInput" type="text" class="form-control" style="width: 500px;" placeholder="Must be at least 8 characters">
     	</div>
     	<div class="input-group input-group-lg">
-    		<span class="input-group-addon">Location</span>
-    		<input id="locationInput" type="text" class="form-control" placeholder="Where does this take place?">
+    		<span class="input-group-addon" style="width: 120px;">Password</span>
+    		<input id="registerConfirmPasswordInput" type="text" class="form-control" style="width: 500px;" placeholder="Confirm password">
     	</div>
     	<div class="input-group input-group-lg">
-    		<span class="input-group-addon">Description</span>
-    		<input id="descriptionInput" type="text" class="form-control" placeholder="What would potential applicants want to know?">
+    		<span class="input-group-addon" style="width: 120px;">Email</span>
+    		<input id="registerEmailInput" type="text" class="form-control" style="width: 500px;" placeholder="We'll send you a confirmation email">
     	</div>
 			<div class="form-group">
-	      <a id="submitJob" class="btn btn-lg btn-success pull-right" href="#" role="button">Submit Job!</a>
+	      <a id="registerButton" class="btn btn-lg btn-success pull-right" href="#" role="button">Register</a>
 	    </div>
     </div>
 
 	</body>
 
-	<script type="text/javascript">
-		addJob.init();
+	<script>
+	 register.init();
 	</script>
 
 </html>

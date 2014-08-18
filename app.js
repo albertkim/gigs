@@ -9,8 +9,9 @@ var fs = require('fs');
 var mongoose = require("mongoose");
 
 var routes = require("./routes");
-var users = require("./routes/user");
 var addJob = require("./routes/addJob");
+var jobActions = require("./routes/jobActions");
+var register = require("./routes/register");
 
 var app = express();
 
@@ -35,9 +36,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", routes.index);
-app.get("/users", users.list);
 app.get("/addJob", addJob.get);
+app.get("/register", register.get);
 
 app.post("/addJob", addJob.post);
+app.post("/jobActions", jobActions.post);
+app.post("/register", register.post);
 
 module.exports = app;
