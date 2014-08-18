@@ -8,6 +8,7 @@
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascripts/register.js"></script>
+    <script type="text/javascript" src="javascripts/header.js"></script>
 	</head>
 
 	<body style="padding: 0px;">
@@ -28,16 +29,16 @@
 		      	</div>
 		      	<button type="submit" class="btn btn-default">Submit</button>
 		      </form>
-		      <form class="navbar-form navbar-right">
+		      <div class="navbar-form navbar-right">
 		      	<div class="form-group">
 		      		<input id="usernameInput" type="text" class="form-control" placeholder="Username">
 		      	</div>
 		      	<div class="form-group">
-		      		<input id="passwordInput" type="text" class="form-control" placeholder="Password">
+		      		<input id="passwordInput" type="password" class="form-control" placeholder="Password">
 		      	</div>
-		      	<button id="loginButton" type="submit" class="btn btn-default">Login</button>
+		      	<button id="loginButton" class="btn btn-default">Login</button>
 		      	<a id="registerButton" type="submit" class="btn btn-default" href="/register">Register</a>
-		      </form>
+		      </div>
 	      </div>
       </div>
     </div>
@@ -57,25 +58,25 @@
     	</div>
     	<div class="input-group input-group-lg">
     		<span class="input-group-addon" style="width: 120px;">Password</span>
-    		<input id="registerPasswordInput" type="text" class="form-control" style="width: 500px;" placeholder="Must be at least 8 characters">
+    		<input id="registerPasswordInput" type="password" class="form-control" style="width: 500px;" placeholder="Must be at least 8 characters">
     	</div>
     	<div class="input-group input-group-lg">
     		<span class="input-group-addon" style="width: 120px;">Password</span>
-    		<input id="registerConfirmPasswordInput" type="text" class="form-control" style="width: 500px;" placeholder="Confirm password">
+    		<input id="registerConfirmPasswordInput" type="password" class="form-control" style="width: 500px;" placeholder="Confirm password">
     	</div>
     	<div class="input-group input-group-lg">
     		<span class="input-group-addon" style="width: 120px;">Email</span>
     		<input id="registerEmailInput" type="text" class="form-control" style="width: 500px;" placeholder="We'll send you a confirmation email">
     	</div>
 			<div class="form-group">
-	      <a id="registerButton" class="btn btn-lg btn-success pull-right" href="#" role="button">Register</a>
+	      <a id="registerUserButton" class="btn btn-lg btn-success pull-right" href="#" role="button">Register</a>
 	    </div>
     </div>
 
 	</body>
 
 	<script>
-	 register.init();
+	  register.header();
 	</script>
 
 </html>

@@ -16,3 +16,5 @@ var usersSchema = new Schema({
 		jobId: String
 	}]
 });
+
+mongoose.model("users", usersSchema);

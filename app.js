@@ -7,11 +7,13 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var fs = require('fs');
 var mongoose = require("mongoose");
+var session = require("cookie-session");
 
 var routes = require("./routes");
 var addJob = require("./routes/addJob");
 var jobActions = require("./routes/jobActions");
 var register = require("./routes/register");
+var loginActions = require("./routes/loginActions");
 
 var app = express();
 
@@ -34,6 +36,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(session({
+  keys: ['key1', 'key2'],
+}));
 
 app.get("/", routes.index);
 app.get("/addJob", addJob.get);
@@ -42,5 +47,6 @@ app.get("/register", register.get);
 app.post("/addJob", addJob.post);
 app.post("/jobActions", jobActions.post);
 app.post("/register", register.post);
+app.post("/loginActions", loginActions.post);
 
 module.exports = app;
