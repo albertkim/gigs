@@ -6,3 +6,37 @@ body {
 a {
   color: #00B7FF;
 }
+
+.add-job {
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	position: relative;
+	outline-style: dotted;
+}
+
+.posting-container {
+	left: 300px;
+	position: relative;
+}
+
+.job {
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	outline-style: dotted;
+	cursor: pointer;
+}
+
+.job:hover {
+	background-color: #F0F0F0;
+}
+
+.posting-detail-container {
+	left: 300px;
+	text-align: center;
+	position: relative;
+	padding: 20px;
+	margin: 10px;
+	outline-style: dotted;
+}
