@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
 
 exports.get = function(req, res){
-	res.render("register", {});
+	res.render("register", {currentUser: req.session.currentUser});
 };
 
 exports.post = function(req, res){
@@ -41,5 +41,5 @@ exports.post = function(req, res){
 		});
 	}
 
-	res.render("index", {});
+	res.render("index", {currentUser: req.session.currentUser});
 };

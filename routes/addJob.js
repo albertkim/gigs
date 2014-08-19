@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 exports.get = function(req, res){
-	res.render("addJob", {});
+	res.render("addJob", {currentUser: req.session.currentUser});
 };
 
 exports.post = function(req, res){
@@ -14,7 +14,7 @@ exports.post = function(req, res){
 			console.log(error);
 		} else{
 			console.log();
-			res.render("index", {});
+			res.render("index", {currentUser: req.session.currentUser});
 		}
 	});
 };

@@ -4,6 +4,7 @@ var index = (function(){
 	var config={};
 	var jobElements = [];
 	var jobObjects = [];
+	var currentUser;
 
 	// Stores the index as the current job
 	var currentJobIndex;
@@ -80,13 +81,18 @@ var index = (function(){
 		jobObjects.push(job);
 	};
 
+	var addCurrentUser = function(user){
+		currentUser = user;
+	};
+
 	var getCurrentJobIndex = function(){
 		return currentJobIndex;
-	}
+	};
 
 	return({
 		init: init,
 		addJob: addJob,
+		addCurrentUser: addCurrentUser,
 		getCurrentJobIndex: getCurrentJobIndex
 	});
 

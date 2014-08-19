@@ -1,5 +1,7 @@
 var header = (function(){
 
+	var currentUser;
+
 	var init = function(){
 		// Attach login button handler
 		$("#loginButton").on("click", function(){
@@ -15,13 +17,24 @@ var header = (function(){
 				success: function(data){
 					console.log("Success");
 					console.log(data);
+					location.reload();
 				}
 			});
 		});
 	};
 
+	var addCurrentUser = function(user){
+		currentUser = user;
+		// Hide username/password/login/register elements
+		
+		// Show logout button
+
+		// Show profile link
+	};
+
 	return {
-		init: init
+		init: init,
+		addCurrentUser: addCurrentUser
 	};
 
 })();
