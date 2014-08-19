@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
 var session = require("cookie-session");
 
-exports.post = function(req, res){
+exports.login = function(req, res){
 	console.log("loginActions POST");
 	var usersModel = mongoose.model("users");
 	var username = req.body.username;
@@ -28,4 +28,13 @@ exports.post = function(req, res){
 			}
 		}
 	});
+};
+
+exports.logout = function(req, res){
+	// Invalidate session
+	req.session = null;
+	console.log("Session cleared");
+
+	// Load index page
+	res.redirect("/");
 };

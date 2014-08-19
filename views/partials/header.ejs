@@ -1,3 +1,5 @@
+<script type="text/javascript" src="javascripts/header.js"></script>
+
 <% if(currentUser != undefined) { %>
 
 	<div class="navbar navbar-fixed-top">
@@ -22,6 +24,12 @@
 	    </div>
 	  </div>
 	</div>
+
+	<script type="text/javascript">
+		$("#logoutButton").on("click", function(){
+			location.href = "/logout";
+		});
+	</script>
 
 <% } else { %>
 
@@ -59,12 +67,10 @@
 
 <script type="text/javascript">
 	header.init();
-  if("<%= currentUser.username %>" != undefined){
-  	console.log("currentUser is defined");
-  	var currentUser = {
-  		username: "<%= currentUser.username %>"
-  	}
-  } else{
-  	console.log("currentUser is undefined");
-  }
+	var currentUser;
+	<% if( JSON.stringify(currentUser) ){ %>
+		currentUser = <%- JSON.stringify(currentUser) %>;
+	<% } else{ %>
+		currentUser = undefined;
+	<% } %>
 </script>

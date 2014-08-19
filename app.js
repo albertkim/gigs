@@ -43,10 +43,12 @@ app.use(session({
 app.get("/", routes.index);
 app.get("/addJob", addJob.get);
 app.get("/register", register.get);
+app.get("/logout", loginActions.logout);
 
 app.post("/addJob", addJob.post);
 app.post("/jobActions", jobActions.post);
 app.post("/register", register.post);
-app.post("/loginActions", loginActions.post);
+app.post("/loginActions", loginActions.login);
+
 
 module.exports = app;
