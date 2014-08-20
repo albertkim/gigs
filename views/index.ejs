@@ -14,7 +14,7 @@
 
 		<% include partials/header %>
 
-    <div class="jumbotron" style="background-color: #94B77C">
+    <div class="jumbotron" style="background-color: #94B77C; top: 50px;">
     	<div class="container">
 	    	<h1>Find local jobs</h1>
 	    	<p>Contribute to your community</p>
@@ -53,17 +53,19 @@
 
     index.init({});
 
-    <% allJobs.forEach(function(job){ %>
-    	var data = {
-    		id: "<%= job._id %>",
-    		title: "<%= job.title %>",
-    		salary: "<%= job.salary %>",
-    		salaryType: "<%= job.salaryType %>",
-    		location: "<%= job.location %>",
-    		description: "<%= job.description %>"
-    	};
-    	index.addJob(data);
-    <% }); %>
+    <% if(allJobs != undefined){ %>
+	    <% allJobs.forEach(function(job){ %>
+	    	var data = {
+	    		id: "<%= job._id %>",
+	    		title: "<%= job.title %>",
+	    		salary: "<%= job.salary %>",
+	    		salaryType: "<%= job.salaryType %>",
+	    		location: "<%= job.location %>",
+	    		description: "<%= job.description %>"
+	    	};
+	    	index.addJob(data);
+	    <% }); %>
+    <% } %>
 
   </script>
 </html>

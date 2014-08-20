@@ -8,7 +8,10 @@ exports.index = function(req, res){
 			console.log("Error finding all jobs");
 		} else{
 			// Send user data if logged in
-			res.render("index", {allJobs: allJobs, currentUser: req.session.currentUser});
+			res.render("index", {
+				allJobs: allJobs, 
+				currentUser: req.session.currentUser
+			});
 		}
 	});
 };

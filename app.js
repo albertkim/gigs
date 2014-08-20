@@ -14,6 +14,7 @@ var addJob = require("./routes/addJob");
 var jobActions = require("./routes/jobActions");
 var register = require("./routes/register");
 var loginActions = require("./routes/loginActions");
+var profile = require("./routes/profile");
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.get("/", routes.index);
 app.get("/addJob", addJob.get);
 app.get("/register", register.get);
 app.get("/logout", loginActions.logout);
+app.get("/profile", profile.get);
 
 app.post("/addJob", addJob.post);
 app.post("/jobActions", jobActions.post);
