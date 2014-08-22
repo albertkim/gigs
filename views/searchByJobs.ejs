@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="javascripts/index.js"></script>
+    <script type="text/javascript" src="javascripts/searchByJobs.js"></script>
 	</head>
 
 	<body style="padding: 0px;">
@@ -16,20 +16,31 @@
 
     <div class="jumbotron" style="background-color: #94B77C; top: 50px;">
     	<div class="container">
-	    	<h1>Find local jobs</h1>
-	    	<p>Contribute to your community</p>
-	    	<p>User our quick and easy payment system, powered by Stripe</p>
+	    	<h1>PlacePro 2</h1>
+	    	<p>Find your next co-op placement</p>
 	    </div>
     </div>
 
-    <div class="col-md-4 posting-container">
+	<div class="navbar navbar-default">
+	  <div class="container">
+	    <div class="collapse navbar-collapse">
+	      <ul class="nav navbar-nav">
+	      	<li><a href="?search=jobs">Search By Jobs</a></li>
+	      	<li><a href="?search=companies">Search By Companies</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
 
+    <div class="col-md-4 posting-container">
+    	<hr>
     	<% allJobs.forEach(function(job){ %>
     		<div class="job">
     			<h4><p><%= job.title %></p></h4>
     			<p>$<%= job.salary %> <%= job.salaryType %></p>
     			<p><%= job.location %></p>
     		</div>
+    		<hr>
     	<% }); %>
 
     </div>
@@ -51,7 +62,7 @@
 
   <script type="text/javascript">
 
-    index.init({});
+    searchByJobs.init({});
 
     <% if(allJobs != undefined){ %>
 	    <% allJobs.forEach(function(job){ %>
@@ -63,7 +74,7 @@
 	    		location: "<%= job.location %>",
 	    		description: "<%= job.description %>"
 	    	};
-	    	index.addJob(data);
+	    	searchByJobs.addJob(data);
 	    <% }); %>
     <% } %>
 

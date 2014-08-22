@@ -9,16 +9,18 @@ var fs = require('fs');
 var mongoose = require("mongoose");
 var session = require("cookie-session");
 
+// Route definitions
 var routes = require("./routes");
 var addJob = require("./routes/addJob");
 var jobActions = require("./routes/jobActions");
+var addCompany = require("./routes/addCompany");
 var register = require("./routes/register");
 var loginActions = require("./routes/loginActions");
 var profile = require("./routes/profile");
 
 var app = express();
 
-// view engine setup
+// View engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -41,16 +43,19 @@ app.use(session({
   keys: ['key1', 'key2'],
 }));
 
+// Route setup
 app.get("/", routes.index);
 app.get("/addJob", addJob.get);
 app.get("/register", register.get);
 app.get("/logout", loginActions.logout);
 app.get("/profile", profile.get);
+app.get("/addCompany", addCompany.get);
 
 app.post("/addJob", addJob.post);
 app.post("/jobActions", jobActions.post);
 app.post("/register", register.post);
 app.post("/loginActions", loginActions.login);
+app.post("/addCompany", addCompany.post);
 
 
 module.exports = app;

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    <title>Add Job</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/searchByCompanies.js"></script>
+	</head>
+
+	<body style="padding: 0px;">
+
+		<% include partials/header %>
+
+    <div class="jumbotron" style="background-color: #94B77C; top: 50px;">
+    	<div class="container">
+	    	<h1>PlacePro 2</h1>
+	    	<p>Find your next co-op placement</p>
+	    </div>
+    </div>
+
+	<div class="navbar navbar-default">
+	  <div class="container">
+	    <div class="collapse navbar-collapse">
+	      <ul class="nav navbar-nav">
+	      	<li><a href="?search=jobs">Search By Jobs</a></li>
+	      	<li><a href="?search=companies">Search By Companies</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+
+    <div class="col-md-4 posting-container">
+    	<hr>
+    	<% allCompanies.forEach(function(company){ %>
+    		<div class="company">
+    			<h4><p><%= company.name %></p></h4>
+    			<p><%= company.description %></p>
+    		</div>
+    		<hr>
+    	<% }); %>
+
+    </div>
+
+    <div class="col-md-5 posting-detail-container">
+    	<p id="defaultDetail">Select a company</p>
+    	<h3><p id="nameDetail" hidden></p></h3>
+    	<hr>
+    	<p id="descriptionDetail" style="text-align: left" hidden></p>
+    	<hr>
+    	<a id="messageCompany" class="btn btn-lg btn-success pull-right" role="button">Message</a>
+    	<a id="applyCompany" class="btn btn-lg btn-success pull-right" role="button">Apply</a>
+    	<a id="deleteCompany" class="btn btn-lg pull-left" role="button">Delete</a>
+    </div>
+
+  </body>
+
+  <script type="text/javascript">
+
+    searchByCompanies.init();
+
+    <% if(allCompanies != undefined){ %>
+	    <% allCompanies.forEach(function(company){ %>
+	    	var data = {
+	    		id: "<%= company._id %>",
+	    		name: "<%= company.name %>",
+	    		description: "<%= company.description %>",
+	    	};
+	    	searchByCompanies.addCompany(data);
+	    <% }); %>
+    <% } %>
+
+  </script>
+</html>

@@ -24,11 +24,21 @@ a {
 	text-align: center;
 	padding: 10px;
 	margin: 10px;
-	outline-style: dotted;
 	cursor: pointer;
 }
 
 .job:hover {
+	background-color: #F0F0F0;
+}
+
+.company {
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.company:hover {
 	background-color: #F0F0F0;
 }
 

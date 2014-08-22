@@ -13,7 +13,7 @@ exports.post = function(req, res){
 		if(error){
 			console.log(error);
 		} else{
-			console.log();
+			console.log(job);
 			res.render("index", {
 				currentUser: req.session.currentUser
 			});

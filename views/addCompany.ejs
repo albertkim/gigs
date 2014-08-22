@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    <title>Add Job</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/addCompany.js"></script>
+    <script type="text/javascript" src="javascripts/header.js"></script>
+	</head>
+
+	<body style="padding: 0px;">
+
+		<% include partials/header %>
+
+    <div class="jumbotron" style="background-color: #94B77C; top: 50px;">
+    	<div class="container">
+	    	<h1>Add your company</h1>
+	    	<p>Have access to the best students</p>
+	    	<p>Customize your company profile</p>
+	    </div>
+    </div>
+
+    <div class="container">
+    	<div class="input-group input-group-lg">
+    		<span class="input-group-addon">Name</span>
+    		<input id="nameInput" type="text" class="form-control" placeholder="Name of your company">
+    	</div>
+    	<div class="input-group input-group-lg">
+    		<span class="input-group-addon">Description</span>
+    		<input id="descriptionInput" type="text" class="form-control" placeholder="What would potential applicants want to know?">
+    	</div>
+    	<div class="input-group input-group-lg">
+    		<span class="input-group-addon">Image</span>
+    		<input id="imageInput" type="text" class="form-control" placeholder="Upload a large, stand-out header image for your company profile">
+    	</div>
+			<div class="form-group">
+	      <a id="submitCompany" class="btn btn-lg btn-success pull-right" href="#" role="button">Submit Company</a>
+	    </div>
+    </div>
+
+	</body>
+
+	<script type="text/javascript">
+		addCompany.init();
+	</script>
+
+</html>

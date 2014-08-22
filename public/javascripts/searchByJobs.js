@@ -4,7 +4,6 @@ var index = (function(){
 	var config={};
 	var jobElements = [];
 	var jobObjects = [];
-	var currentUser;
 
 	// Stores the index as the current job
 	var currentJobIndex;
