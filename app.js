@@ -11,6 +11,7 @@ var session = require("cookie-session");
 
 // Route definitions
 var routes = require("./routes");
+var index = require("./routes/index");
 var addJob = require("./routes/addJob");
 var jobActions = require("./routes/jobActions");
 var addCompany = require("./routes/addCompany");
@@ -45,7 +46,7 @@ app.use(session({
 }));
 
 // Route setup
-app.get("/", routes.index);
+app.get("/", index.get);
 app.get("/addJob", addJob.get);
 app.get("/register", register.get);
 app.get("/logout", loginActions.logout);
@@ -57,5 +58,6 @@ app.post("/addJob", addJob.post);
 app.post("/jobActions", jobActions.post);
 app.post("/register", register.post);
 app.post("/loginActions", loginActions.login);
+app.post("/manageUsers", manageUsers.post);
 
 module.exports = app;

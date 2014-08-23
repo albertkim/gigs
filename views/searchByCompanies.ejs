@@ -51,7 +51,6 @@
     	<p id="descriptionDetail" style="text-align: left" hidden></p>
     	<hr>
     	<a id="messageCompany" class="btn btn-lg btn-success pull-right" role="button">Message</a>
-    	<a id="applyCompany" class="btn btn-lg btn-success pull-right" role="button">Apply</a>
     	<a id="deleteCompany" class="btn btn-lg pull-left" role="button">Delete</a>
     </div>
 
@@ -64,9 +63,9 @@
     <% if(allCompanies != undefined){ %>
 	    <% allCompanies.forEach(function(company){ %>
 	    	var data = {
-	    		id: "<%= company._id %>",
-	    		name: "<%= company.name %>",
-	    		description: "<%= company.description %>",
+	    		id: "<%- company._id %>",
+	    		name: "<%- company.name %>",
+	    		description: "<%- company.description %>",
 	    	};
 	    	searchByCompanies.addCompany(data);
 	    <% }); %>

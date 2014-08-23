@@ -17,3 +17,25 @@ exports.get = function(req, res){
 	});
 
 };
+
+exports.post = function(req, res){
+
+	var userModel = mongoose.model("users");
+	var body = req.body;
+	console.log(body);
+
+	switch(body.action){
+		case "delete":
+			userModel.find({_id: body.id}, function(error, user){
+				if(error){
+					console.log(error);
+				} else{
+					console.log(user);
+					userModel(user[0]).remove();
+					res.redirect("/manageUsers");
+				}
+			});
+			break;
+	}
+
+};

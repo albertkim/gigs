@@ -1,11 +1,10 @@
 var mongoose = require("mongoose");
 
-exports.index = function(req, res){
+exports.get = function(req, res){
 
 	console.log("Search parameter: " + req.query.search);
 
 	// Default: search by jobs or params contains search=jobs
-
 	if(req.query.search == undefined || req.query.search == "jobs"){
 		var jobsModel = mongoose.model("jobs");
 		// Get all jobs
@@ -41,4 +40,8 @@ exports.index = function(req, res){
 		res.send("Invalid url");
 	}
 
+};
+
+exports.post = function(req, res){
+	
 };

@@ -67,12 +67,12 @@
     <% if(allJobs != undefined){ %>
 	    <% allJobs.forEach(function(job){ %>
 	    	var data = {
-	    		id: "<%= job._id %>",
-	    		title: "<%= job.title %>",
-	    		salary: "<%= job.salary %>",
-	    		salaryType: "<%= job.salaryType %>",
-	    		location: "<%= job.location %>",
-	    		description: "<%= job.description %>"
+	    		id: "<%- job._id %>",
+	    		title: "<%- job.title %>",
+	    		salary: "<%- job.salary %>",
+	    		salaryType: "<%- job.salaryType %>",
+	    		location: "<%- job.location %>",
+	    		description: "<%- job.description %>"
 	    	};
 	    	searchByJobs.addJob(data);
 	    <% }); %>

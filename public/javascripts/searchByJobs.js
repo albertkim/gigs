@@ -1,7 +1,7 @@
 var searchByJobs = (function(){
 	
 	var self = this;
-	var config={};
+	var config= {};
 	var jobElements = [];
 	var jobObjects = [];
 
@@ -55,9 +55,25 @@ var searchByJobs = (function(){
 		};
 
 		// Add handlers for the job details buttons
+		$("#applyJob").on("click", function(){
+			// Get selected job id
+			var id = jobObjects[currentJobIndex].id;
+			$.ajax({
+				url: "/jobActions",
+				type: "POST",
+				data: {
+					action: "apply",
+					id: id
+				},
+				success: function(data){
+					console.log("Success");
+					location.reload();
+				}
+			});
+		});
+
 		$("#deleteJob").on("click", {jobObjects: jobObjects}, function(event){
 			var jobObjects = event.data.jobObjects;
-			var currentJobIndex = index.getCurrentJobIndex();
 			// Get selected job id
 			var id = jobObjects[currentJobIndex].id;
 			$.ajax({
@@ -88,11 +104,11 @@ var searchByJobs = (function(){
 		return currentJobIndex;
 	};
 
-	return({
+	return {
 		init: init,
 		addJob: addJob,
 		addCurrentUser: addCurrentUser,
 		getCurrentJobIndex: getCurrentJobIndex
-	});
+	};
 
 })();

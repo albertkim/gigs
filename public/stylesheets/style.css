@@ -24,8 +24,6 @@ a {
 
 .job {
 	text-align: center;
-	padding: 10px;
-	margin: 10px;
 	cursor: pointer;
 }
 
@@ -37,8 +35,6 @@ a {
 
 .company {
 	text-align: center;
-	padding: 10px;
-	margin: 10px;
 	cursor: pointer;
 }
 
@@ -49,8 +45,6 @@ a {
 /* User elements */
 
 .user {
-	padding: 10px;
-	margin: 10px;
 	cursor: pointer;
 }
 

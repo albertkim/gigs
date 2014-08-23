@@ -50,11 +50,17 @@
 
     <div class="col-md-5 posting-detail-container">
     	<p id="defaultDetail">Select a user</p>
-    	<h3><p id="titleDetail" hidden></p></h3>
-    	<p id="salaryDetail" hidden></p>
-    	<p id="locationDetail" hidden></p>
+    	<h3><p id="usernameDetail" hidden></p></h3>
+    	<p id="accountTypeDetail" hidden></p>
+    	<p id="dateCreatedDetail" hidden></p>
     	<hr>
-    	<p id="descriptionDetail" style="text-align: left" hidden></p>
+    	<p id="studentIdDetail" hidden></p>
+    	<hr>
+    	<p id="schoolDetail" hidden></p>
+    	<p id="companyDetail" hidden></p>
+    	<p id="jobsAppliedDetail" hidden></p>
+    	<p id="jobsInProgressDetail" hidden></p>
+    	<p id="jobsCompletedDetail" hidden></p>
     	<hr>
     	<a id="messageUser" class="btn btn-lg btn-success pull-right" role="button">Message</a>
     	<a id="deleteUser" class="btn btn-lg pull-left" role="button">Delete</a>
@@ -64,21 +70,26 @@
 
   <script type="text/javascript">
 
-    manageUsers.init();
-
     <% if(allUsers != undefined){ %>
 	    <% allUsers.forEach(function(user){ %>
 	    	var user = {
-	    		id: "<%= user._id %>",
-	    		accountType: "<%= user.accountType %>",
-	    		dateCreated: "<%= user.dateCreated %>",
-	    		studentId: "<%= user.studentId %>",
-	    		faculty: "<%= user.faculty %>",
-	    		company: "<%= user.company %>"
+	    		id: "<%- user._id %>",
+	    		username: "<%- user.username %>",
+	    		accountType: "<%- user.accountType %>",
+	    		dateCreated: "<%- user.dateCreated %>",
+	    		school: "<%- user.school %>",
+	    		studentId: "<%- user.studentId %>",
+	    		faculty: "<%- user.faculty %>",
+	    		company: "<%- user.company %>",
+	    		jobsApplied: JSON.parse('<%- JSON.stringify(user.jobsApplied) %>'),
+	    		jobsInProgress: JSON.parse('<%- JSON.stringify(user.jobsInProgress) %>'),
+	    		jobsCompleted: JSON.parse('<%- JSON.stringify(user.jobsCompleted) %>')
 	    	};
 	    	manageUsers.addUser(user);
 	    <% }); %>
     <% } %>
+
+    manageUsers.init();
 
   </script>
 </html>
