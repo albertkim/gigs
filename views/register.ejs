@@ -17,29 +17,79 @@
 
     <div class="jumbotron" style="background-color: #94B77C; top: 50px;">
     	<div class="container">
-	    	<h1>Help out your community</h1>
-	    	<p>Work with great people in your city</p>
-	    	<p>Start your search today!</p>
+	    	<h1>Join PlacePro 2</h1>
 	    </div>
     </div>
 
     <div class="container">
-    	<div class="input-group input-group-lg">
-    		<span class="input-group-addon" style="width: 120px;">Username</span>
-    		<input id="registerUsernameInput" type="text" class="form-control" style="width: 500px;" placeholder="Choose a unique username">
-    	</div>
-    	<div class="input-group input-group-lg">
-    		<span class="input-group-addon" style="width: 120px;">Password</span>
-    		<input id="registerPasswordInput" type="password" class="form-control" style="width: 500px;" placeholder="Must be at least 8 characters">
-    	</div>
-    	<div class="input-group input-group-lg">
-    		<span class="input-group-addon" style="width: 120px;">Password</span>
-    		<input id="registerConfirmPasswordInput" type="password" class="form-control" style="width: 500px;" placeholder="Confirm password">
-    	</div>
-    	<div class="input-group input-group-lg">
-    		<span class="input-group-addon" style="width: 120px;">Email</span>
-    		<input id="registerEmailInput" type="text" class="form-control" style="width: 500px;" placeholder="We'll send you a confirmation email">
-    	</div>
+		  <div class="col-lg-3" style="float: none">
+		    <div class="input-group">
+		      <strong><span id="accountType">Account type (required)</span></strong>
+		      <div class="input-group-btn">
+		        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Select <span class="caret"></span></button>
+		        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+		          <li><a id="studentSelect">Student</a></li>
+		          <li><a id="coordinatorSelect">Coordinator</a></li>
+		          <li><a id="facultySelect">Faculty</a></li>
+		          <li class="divider"></li>
+		          <li><a id="employerSelect">Employer</a></li>
+		        </ul>
+		      </div><!-- /btn-group -->
+		    </div><!-- /input-group -->
+		  </div>
+		  
+		  <div class="col-lg-6" style="float: none">
+			  <!-- Basic inputs -->
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">Username</span>
+	    		<input id="registerUsernameInput" type="text" class="form-control" placeholder="Choose a unique username">
+	    	</div>
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">Password</span>
+	    		<input id="registerPasswordInput" type="password" class="form-control" placeholder="Must be at least 8 characters">
+	    	</div>
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">Password</span>
+	    		<input id="registerConfirmPasswordInput" type="password" class="form-control"  placeholder="Confirm password">
+	    	</div>
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">Email</span>
+	    		<input id="registerEmailInput" type="text" class="form-control" placeholder="We'll send you a confirmation email">
+	    	</div>
+    	</div><!-- /.col-lg-6 -->
+
+    	<!-- Student inputs -->
+    	<div id="studentInputs" class="col-lg-6" style="float: none">
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">School</span>
+	    		<input id="registerStudentSchoolInput" type="text" class="form-control" placeholder = "University of ...">
+	    	</div>
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">Student ID</span>
+	    		<input id="registerStudentIdInput" type="text" class="form-control" placeholder="Enter your unique identifier">
+	    	</div>
+	    </div>
+
+    	<!-- Coordinator inputs -->
+    	<div id="coordinatorInputs" class="col-lg-6" style="float: none" hidden>
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">Faculty</span>
+	    		<input id="registerFacultyInput" type="text" class="form-control" placeholder="We'll verify via email">
+	    	</div>
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">School</span>
+	    		<input id="registerCoordinatorSchoolInput" type="text" class="form-control" placeholder = "University of ...">
+	    	</div>
+	    </div>
+
+    	<!-- Employer inputs -->
+    	<div id="employerInputs" class="col-lg-6" style="float: none" hidden>
+	    	<div class="input-group input-group-lg">
+	    		<span class="input-group-addon">Company</span>
+	    		<input id="registerCompanyInput" type="text" class="form-control" placeholder="We'll verify via email">
+	    	</div>
+	    </div>
+
 			<div class="form-group">
 	      <a id="registerUserButton" class="btn btn-lg btn-success pull-right" href="#" role="button">Register</a>
 	    </div>

@@ -41,7 +41,5 @@ exports.post = function(req, res){
 		});
 	}
 
-	res.render("index", {
-		currentUser: req.session.currentUser
-	});
+	res.redirect("/");
 };

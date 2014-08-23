@@ -5,10 +5,14 @@ var usersSchema = new Schema({
 	username: String,
 	password: String,
 	// Type can be: student, coordinator, faculty, employer
-	type: String,
+	accountType: String,
 	dateCreated: {type: Date, default: Date.now},
 	description: String,
+	studentId: String,
 	resume: { data: Buffer, contentType: String },
+	company: String,
+	faculty: String,
+	school: String,
 	jobsCompleted: [{
 		jobId: String
 	}],
@@ -17,7 +21,8 @@ var usersSchema = new Schema({
 	}],
 	jobsApplied: [{
 		jobId: String
-	}]
+	}],
+	isDeleted: {type: Boolean, default: false}
 });
 
 mongoose.model("users", usersSchema);

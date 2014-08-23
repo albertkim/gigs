@@ -1,4 +1,4 @@
-var index = (function(){
+var searchByJobs = (function(){
 	
 	var self = this;
 	var config={};

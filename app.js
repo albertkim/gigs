@@ -17,6 +17,7 @@ var addCompany = require("./routes/addCompany");
 var register = require("./routes/register");
 var loginActions = require("./routes/loginActions");
 var profile = require("./routes/profile");
+var manageUsers = require("./routes/manageUsers");
 
 var app = express();
 
@@ -50,12 +51,11 @@ app.get("/register", register.get);
 app.get("/logout", loginActions.logout);
 app.get("/profile", profile.get);
 app.get("/addCompany", addCompany.get);
+app.get("/manageUsers", manageUsers.get);
 
 app.post("/addJob", addJob.post);
 app.post("/jobActions", jobActions.post);
 app.post("/register", register.post);
 app.post("/loginActions", loginActions.login);
-app.post("/addCompany", addCompany.post);
-
 
 module.exports = app;

@@ -20,6 +20,8 @@ a {
 	position: relative;
 }
 
+/* Job elements */
+
 .job {
 	text-align: center;
 	padding: 10px;
@@ -31,6 +33,8 @@ a {
 	background-color: #F0F0F0;
 }
 
+/* Company elements */
+
 .company {
 	text-align: center;
 	padding: 10px;
@@ -39,6 +43,18 @@ a {
 }
 
 .company:hover {
+	background-color: #F0F0F0;
+}
+
+/* User elements */
+
+.user {
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.user:hover {
 	background-color: #F0F0F0;
 }
 
