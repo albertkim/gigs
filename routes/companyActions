@@ -1,0 +1,26 @@
+var mongoose = require("mongoose");
+
+exports.post = function(req, res){
+	var companyModel = mongoose.model("companies");
+	var userModel = mongoose.model("users");
+	var body = req.body;
+	console.log(body);
+	// Current company action is being performed on
+	var companyId = body.id;
+	console.log("companyId: " + companyId);
+
+	switch(body.action){
+		case "delete":
+			companyModel.find({_id: companyId}, function(error, company){
+				if(error){
+					console.log(error);
+				} else{
+					console.log(company);
+					company[0].remove();
+					console.log("Successfully deleted");
+				}
+			});
+			break;
+	}
+
+}

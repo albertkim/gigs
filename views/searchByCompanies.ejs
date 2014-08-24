@@ -37,7 +37,6 @@
     	<% allCompanies.forEach(function(company){ %>
     		<div class="company">
     			<h4><p><%= company.name %></p></h4>
-    			<p><%= company.description %></p>
     		</div>
     		<hr>
     	<% }); %>
@@ -62,12 +61,7 @@
 
     <% if(allCompanies != undefined){ %>
 	    <% allCompanies.forEach(function(company){ %>
-	    	var data = {
-	    		id: "<%- company._id %>",
-	    		name: "<%- company.name %>",
-	    		description: "<%- company.description %>",
-	    	};
-	    	searchByCompanies.addCompany(data);
+	    	searchByCompanies.addCompany(<%- JSON.stringify(company) %>);
 	    <% }); %>
     <% } %>
 

@@ -15,7 +15,8 @@ var addCompany = (function(){
 					description: description
 				},
 				success: function(data){
-					console.log(data);
+					console.log("Success");
+					location.href = "/";
 				}
 			});
 		});

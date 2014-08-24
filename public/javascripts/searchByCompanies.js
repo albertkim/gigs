@@ -4,19 +4,44 @@ var searchByCompanies = (function(){
 	var config={};
 	var companyElements = [];
 	var companyObjects = [];
+	var currentCompanyIndex;
 
 	var init = function(){
 		
-		jobElements = $(".company");
+		companyElements = $(".company");
+
+		// Add handlers to each company element
+		for(var i=0; i<companyElements.length; i++){
+			var companyElement = $(companyElements[i]);
+			companyElement.on("click", i, function(event){
+
+				var i = event.data;
+				// Store clicked job in state variable
+				currentCompanyIndex = i;
+				var companyObject = companyObjects[i];
+
+				// Locate all the details elements
+				var defaultDetail = $("#defaultDetail");
+				var name = $("#nameDetail");
+				var description = $("#descriptionDetail");				
+
+				// Add each element to the details panel, unhide
+				defaultDetail.hide();
+
+				name.text(companyObject.name);
+				name.show();
+
+				description.text(companyObject.description);
+				description.show();
+			});
+		};
 
 		// Add handlers for the company details buttons
-		$("#deleteCompany").on("click", {companyObjects: companyObjects}, function(event){
-			var jobObjects = event.data.jobObjects;
-			var currentJobIndex = index.getCurrentJobIndex();
+		$("#deleteCompany").on("click", function(event){
 			// Get selected job id
-			var id = jobObjects[currentJobIndex].id;
+			var id = companyObjects[currentCompanyIndex]._id;
 			$.ajax({
-				url: "/jobActions",
+				url: "/companyActions",
 				type: "POST",
 				data: {
 					action: "delete",
@@ -24,7 +49,7 @@ var searchByCompanies = (function(){
 				},
 				success: function(data){
 					console.log("Success");
-					location.reload();
+					location.href = "/";
 				}
 			});
 		});

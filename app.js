@@ -14,6 +14,7 @@ var routes = require("./routes");
 var index = require("./routes/index");
 var addJob = require("./routes/addJob");
 var jobActions = require("./routes/jobActions");
+var companyActions = require("./routes/companyActions");
 var addCompany = require("./routes/addCompany");
 var register = require("./routes/register");
 var loginActions = require("./routes/loginActions");
@@ -49,9 +50,9 @@ app.use(session({
 app.get("/", index.get);
 app.get("/addJob", addJob.get);
 app.get("/register", register.get);
+app.get("/addCompany", addCompany.get);
 app.get("/logout", loginActions.logout);
 app.get("/profile", profile.get);
-app.get("/addCompany", addCompany.get);
 app.get("/manageUsers", manageUsers.get);
 
 app.post("/addJob", addJob.post);
@@ -59,5 +60,7 @@ app.post("/jobActions", jobActions.post);
 app.post("/register", register.post);
 app.post("/loginActions", loginActions.login);
 app.post("/manageUsers", manageUsers.post);
+app.post("/addCompany", addCompany.post);
+app.post("/companyActions", companyActions.post);
 
 module.exports = app;
