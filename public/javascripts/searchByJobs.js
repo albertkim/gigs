@@ -25,6 +25,7 @@ var searchByJobs = (function(){
 				// Locate all the details elements
 				var defaultDetail = $("#defaultDetail");
 				var title = $("#titleDetail");
+				var company = $("#companyDetail");
 				var salary = $("#salaryDetail");
 				var location = $("#locationDetail");
 				var description = $("#descriptionDetail");
@@ -32,24 +33,19 @@ var searchByJobs = (function(){
 				// Add each element to the details panel, unhide
 				defaultDetail.hide();
 
-				var encoded = encodeURIComponent(jobObject.title);
-				var decoded = decodeURIComponent(encoded);
-				title.text(decoded);
+				title.text(jobObject.title);
 				title.show();
 
-				encoded = encodeURIComponent(jobObject.salary);
-				decoded = decodeURIComponent(encoded);
-				salary.text("$" + decoded);
+				company.text(jobObject.company);
+				company.show();
+
+				salary.text("$" + jobObject.salary);
 				salary.show();
 
-				encoded = encodeURIComponent(jobObject.location);
-				decoded = decodeURIComponent(encoded);
-				location.text(decoded);
+				location.text(jobObject.location);
 				location.show();
 
-				encoded = encodeURIComponent(jobObject.description);
-				decoded = decodeURIComponent(encoded);
-				description.text(decoded);
+				description.text(jobObject.description);
 				description.show();
 			});
 		};
@@ -74,8 +70,11 @@ var searchByJobs = (function(){
 
 		$("#deleteJob").on("click", {jobObjects: jobObjects}, function(event){
 			var jobObjects = event.data.jobObjects;
+			var jobObject = jobObjects[currentJobIndex];
+			console.log(jobObject);
 			// Get selected job id
-			var id = jobObjects[currentJobIndex].id;
+			var id = jobObject._id;
+			console.log("Deleting job id: " + id);
 			$.ajax({
 				url: "/jobActions",
 				type: "POST",
@@ -85,7 +84,6 @@ var searchByJobs = (function(){
 				},
 				success: function(data){
 					console.log("Success");
-					location.reload();
 				}
 			});
 		});

@@ -61,6 +61,7 @@ var register = (function(){
 				var data = {
 					username: username,
 					password: password,
+					accountType: accountType,
 					confirmPassword: confirmPassword,
 					email: email
 				};

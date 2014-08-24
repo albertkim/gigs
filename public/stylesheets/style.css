@@ -13,6 +13,7 @@ a {
 	margin: 10px;
 	position: relative;
 	outline-style: dotted;
+	outline-width: thin;
 }
 
 .posting-container {
@@ -59,4 +60,5 @@ a {
 	padding: 20px;
 	margin: 10px;
 	outline-style: dotted;
+	outline-width: thin;
 }

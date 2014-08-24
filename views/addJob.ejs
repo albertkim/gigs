@@ -15,7 +15,7 @@
 
 		<% include partials/header %>
 
-    <div class="jumbotron" style="background-color: #94B77C; top: 50px;">
+    <div class="jumbotron" style="background-color: #113C51; color: white; top: 50px;">
     	<div class="container">
 	    	<h1>Add a job posting</h1>
 	    	<p>Get access to the largest platform for internship seekers</p>
@@ -23,6 +23,11 @@
     </div>
 
     <div class="container">
+    	<% if(currentUser.company != undefined){ %>
+    		<h2>Company: <%- currentUser.company %></h2>
+    	<% } else{ %>
+    		<h2>You are not registered to a verified company</h2>
+    	<% } %>
     	<div class="input-group input-group-lg">
     		<span class="input-group-addon">Title</span>
     		<input id="titleInput" type="text" class="form-control" placeholder="Pick a standout headline for your job posting">
@@ -34,7 +39,7 @@
     			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Salary Type<span class="caret"></span></button>
 	        <ul class="dropdown-menu" role="menu">
 	          <li><a href="#">Hourly</a></li>
-	          <li><a href="#">Upon completion</a></li>
+	          <li><a href="#">Monthly (default)</a></li>
 	          <li class="divider"></li>
 	          <li><a href="#">Negotiable</a></li>
 	        </ul>

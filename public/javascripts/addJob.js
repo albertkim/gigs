@@ -11,12 +11,14 @@ var addJob = (function(){
 			var userId = "1";
 			var title = $("#titleInput").val();
 			var salary = $("#salaryInput").val();
-			var salaryType = "upon completion";
+			var salaryType = "monthly";
 			var location = $("#locationInput").val();
 			var description = $("#descriptionInput").val();
 
 			// Verify non-empty inputs
-			if(userId == ""){
+			if(currentUser.company == undefined){
+				console.log("User isn't registered to a company");
+			} else if(userId == ""){
 
 			} else if(title == ""){
 
@@ -34,6 +36,7 @@ var addJob = (function(){
 					type: "POST",
 					data: {
 						userId: userId,
+						company: currentUser.company,
 						title: title,
 						salary: salary,
 						salaryType: salaryType,

@@ -8,6 +8,7 @@ exports.post = function(req, res){
 	console.log(body);
 	// Current job action is being performed on
 	var jobId = body.id;
+	console.log("jobId: " + jobId);
 
 	switch(body.action){
 		case "delete":
@@ -15,9 +16,10 @@ exports.post = function(req, res){
 				if(error){
 					console.log(error);
 				} else{
+					console.log("Successfully deleted");
 					console.log(job);
-					jobModel(job[0]).remove();
-					res.redirect("/?search=jobs");
+					job[0].remove();
+					res.redirect("/");
 				}
 			});
 			break;

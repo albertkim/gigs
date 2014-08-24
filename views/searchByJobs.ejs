@@ -14,7 +14,7 @@
 
 		<% include partials/header %>
 
-    <div class="jumbotron" style="background-color: #94B77C; top: 50px;">
+    <div class="jumbotron" style="background-color: #113C51; color: white; top: 50px;">
     	<div class="container">
 	    	<h1>PlacePro 2</h1>
 	    	<p>Find your next co-op placement</p>
@@ -36,9 +36,9 @@
     	<hr>
     	<% allJobs.forEach(function(job){ %>
     		<div class="job">
-    			<h4><p><%= job.title %></p></h4>
-    			<p>$<%= job.salary %> <%= job.salaryType %></p>
-    			<p><%= job.location %></p>
+    			<h4><p><%- job.company %> | <%- job.title %></p></h4>
+    			<p>$<%- job.salary %> <%= job.salaryType %></p>
+    			<p><%- job.location %></p>
     		</div>
     		<hr>
     	<% }); %>
@@ -48,13 +48,14 @@
     <div class="col-md-5 posting-detail-container">
     	<p id="defaultDetail">Select a job</p>
     	<h3><p id="titleDetail" hidden></p></h3>
+    	<h3><p id="companyDetail" hidden></p></h3>
     	<p id="salaryDetail" hidden></p>
     	<p id="locationDetail" hidden></p>
     	<hr>
     	<p id="descriptionDetail" style="text-align: left" hidden></p>
     	<hr>
-    	<a id="messageJob" class="btn btn-lg btn-success pull-right" role="button">Message</a>
-    	<a id="applyJob" class="btn btn-lg btn-success pull-right" role="button">Apply</a>
+    	<a id="messageJob" class="btn btn-lg btn-default pull-right" role="button">Message</a>
+    	<a id="applyJob" class="btn btn-lg btn-default pull-right" role="button">Apply</a>
     	<a id="deleteJob" class="btn btn-lg pull-left" role="button">Delete</a>
     </div>
 
@@ -66,15 +67,7 @@
 
     <% if(allJobs != undefined){ %>
 	    <% allJobs.forEach(function(job){ %>
-	    	var data = {
-	    		id: "<%- job._id %>",
-	    		title: "<%- job.title %>",
-	    		salary: "<%- job.salary %>",
-	    		salaryType: "<%- job.salaryType %>",
-	    		location: "<%- job.location %>",
-	    		description: "<%- job.description %>"
-	    	};
-	    	searchByJobs.addJob(data);
+	    	searchByJobs.addJob(<%- JSON.stringify(job) %>);
 	    <% }); %>
     <% } %>
 

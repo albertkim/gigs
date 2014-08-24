@@ -1,13 +1,29 @@
 var mongoose = require("mongoose");
+var future = require("future");
 
 exports.get = function(req, res){
 
 	var userModel = mongoose.model("users");
+	var jobModel = mongoose.model("jobs");
+
 	// Get all jobs
 	userModel.find(function(error, allUsers){
 		if(error){
 			console.log("Error finding all users");
 		} else{
+			// Modify jobs arrays per user to include job names
+			// Must be sequential
+			for(var i=0; i<allUsers.length; i++){
+				var user = allUsers[i];
+
+				// Applied jobs
+
+				// In progress jobs
+
+				// Completed jobs
+
+			}
+
 			// Send user data if logged in
 			res.render("manageUsers", {
 				allUsers: allUsers,

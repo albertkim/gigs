@@ -6,6 +6,7 @@ exports.get = function(req, res){
 };
 
 exports.post = function(req, res){
+	var body = req.body;
 	var username = req.body.username;
 	var password = req.body.password;
 	var confirmPassword = req.body.password;
@@ -26,12 +27,32 @@ exports.post = function(req, res){
 		console.log("Hashed password: " + hashedPassword);
 
 		var userModel = mongoose.model("users");
-		var entryObject = {
+		var data = {
 			username: username,
 			password: hashedPassword,
+			accountType: body.accountType,
 			email: email
 		};
-		var entry = new userModel(entryObject);
+
+		// Add extra fields based off of account type
+		switch(body.accountType){
+			case "Student":
+				data.school = body.studentSchool;
+				data.studentId = body.studentId;
+			case "Coordinator":
+				data.faculty = body.faculty;
+				data.school = body.coordinatorSchool;
+				break;
+			case "Faculty":
+				data.faculty = body.faculty;
+				data.school = body.coordinatorSchool;
+				break;
+			case "Employer":
+				data.company = body.company;
+				break;
+		};
+
+		var entry = new userModel(data);
 		entry.save(function(error, user){
 			if(error){
 				console.log(error);

@@ -17,6 +17,7 @@
     "bcrypt-nodejs": "*",
     "cookie-session": "*",
     "ejs": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "future": "*"
   }
 }

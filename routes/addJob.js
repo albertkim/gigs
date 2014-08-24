@@ -14,9 +14,7 @@ exports.post = function(req, res){
 			console.log(error);
 		} else{
 			console.log(job);
-			res.render("index", {
-				currentUser: req.session.currentUser
-			});
+			res.redirect("/");
 		}
 	});
 };
